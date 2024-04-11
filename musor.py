@@ -38,31 +38,4 @@ with open("musor.csv", "r", encoding="utf-8") as bemenet:
         zene["cim"] = adatok[3].split(":")[1]
         zenek.append(zene)
         zene = {}
-
-print(f"a. A fájl {len(zenek)} darab adatsort tartalmaz.")
-
-be_eloado = input("\nb. Kérem egy előadó nevét: ") or "Frank Zappa"
-print(f"{be_eloado} számai:")
-for zene in zenek:
-    if zene["eloado"] == be_eloado:
-        print(f"\t{zene['cim']}")
-
-def minkivalasztas(lista):
-    min_index = 0
-    for i in range(1, len(lista)):
-        if lista[i]["szam_hossza_perc"]*60+lista[i]["szam_hossza_masodperc"] < lista[min_index]["szam_hossza_perc"]*60+lista[min_index]["szam_hossza_masodperc"]:
-            min_index = i
-    return min_index
-
-print(f"\nc. A legrövidebb szám címe: {zenek[minkivalasztas(zenek)]['cim']}")
-
-statisztika = {}
-for zene in zenek:
-    if zene["eloado"] in statisztika:
-        statisztika[zene["eloado"]] += 1
-    else:
-        statisztika[zene["eloado"]] = 1
-
-with open("musor_statisztika.txt", "w", encoding="utf-8") as kimenet:
-    for kulcs in statisztika:
-        print(f"{kulcs} - {statisztika[kulcs]}", file=kimenet)
+# Itt fejeztük be
